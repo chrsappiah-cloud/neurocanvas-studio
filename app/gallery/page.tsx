@@ -31,7 +31,8 @@ export default function GalleryPage() {
       </section>
 
       <section className="artworkUploader">
-        <ArtworkUploader />
+        {/* TODO: Replace 'demo-user' with actual userId from session/auth */}
+        <ArtworkUploader userId="demo-user" />
       </section>
     </main>
   );

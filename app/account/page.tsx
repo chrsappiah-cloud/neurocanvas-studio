@@ -2,9 +2,9 @@ import { redirect } from 'next/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import AccountForm from './account-form';
 
+
 export default async function AccountPage() {
-  const supabase = createSupabaseServerClient();
-  const supabase = getSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -13,5 +13,5 @@ export default async function AccountPage() {
     redirect('/login');
   }
 
-  return <AccountForm user={user} />;
+  return <AccountForm claims={user} />;
 }
